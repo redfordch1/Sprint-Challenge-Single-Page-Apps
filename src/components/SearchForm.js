@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function SearchForm(props) {
-	const [ result, setResult ] = useState();
+	const [ result, setResult ] = useState([]);
 
 	const handleChanges = (e) => {
 		setResult(e.target.value);
