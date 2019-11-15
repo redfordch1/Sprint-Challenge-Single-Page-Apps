@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import CharacterCard from "./CharacterCard";
 import styled from "styled-components";
+import SearchForm from "./SearchForm";
 
 export default function CharacterList() {
 	const H2 = styled.h2`text-align: center;`;
@@ -17,12 +18,18 @@ export default function CharacterList() {
 	// TODO: Add useState to track data from useEffect
 
 	const [ char, setChar ] = useState([]);
+	const [ filteredData, updateData ] = useState([]);
+
+	const search = (chaArr) => {
+		updateData(chaArr);
+	};
 
 	useEffect(() => {
 		// TODO: Add API Request here - must run in `useEffect`
 		//  Important: verify the 2nd `useEffect` parameter: the dependancies array!
 		axios.get("https://rickandmortyapi.com/api/character/").then((response) => {
 			setChar(response.data.results);
+			updateData(response.data.results);
 		});
 	}, []);
 
@@ -33,9 +40,10 @@ export default function CharacterList() {
 				<Link className="main__1" to={"/"}>
 					Home
 				</Link>
+				<SearchForm search={search} characters={char} />
 			</div>
 			<Allcards>
-				{char.map((character) => {
+				{filteredData.map((character) => {
 					return <CharacterCard key={character.id} character={character} />;
 				})}
 			</Allcards>

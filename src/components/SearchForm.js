@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-export default function SearchForm() {
+export default function SearchForm(props) {
 	const [ result, setResult ] = useState();
 
 	const handleChanges = (e) => {
-		setResults(e.target.value);
+		setResult(e.target.value);
 	};
 
 	const submitHandler = (e) => {
@@ -15,18 +15,10 @@ export default function SearchForm() {
 		props.search(filtered);
 	};
 	return (
-		<div>
+		<section className="search-form">
 			<form onSubmit={submitHandler}>
-				<input
-					id="name"
-					type="text"
-					name="textfield"
-					value={query}
-					onChange={handleChanges}
-					placeholder="Search Here"
-					
-				/>
+				<input id="name" type="text" name="textfield" onChange={handleChanges} placeholder="Search Here" />
 			</form>
-		</div>
+		</section>
 	);
 }
