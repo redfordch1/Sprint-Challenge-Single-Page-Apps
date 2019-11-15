@@ -17,7 +17,7 @@ export default function SearchForm(props) {
 	return (
 		<section className="search-form">
 			<form onSubmit={submitHandler}>
-				<input onChange={handleChanges} type="text" name="character" id="character" placeholder="Search Here" />
+				<input className="search__1" onChange={handleChanges} type="text" name="character" id="character" placeholder="Search Here" />
 			</form>
 		</section>
 	);
