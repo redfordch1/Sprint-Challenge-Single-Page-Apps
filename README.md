@@ -27,7 +27,7 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ]  Explain benefit(s) using `client-side routing`?
 
-> Answer:
+> Answer: The page doesnt reload everytime you or another person goes to it! It looks cleaner, and looks faster.
 
 ## Project Set Up
 
